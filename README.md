@@ -4,7 +4,7 @@ Infrastructure-as-code for **`week11/Week11_lab.pptx`** (ConfigMaps & Secrets �
 ConfigMap and a Secret into Pods as environment variables).
 
 Same self-forming **3-node kubeadm cluster** as the Week 10 lab
-([CLO835_week10_lab](https://github.com/sojoudian/CLO835_week10_lab)) — 1 control plane + 2 workers on
+([CLO835_week11_lab](https://github.com/sojoudian/CLO835_week11_lab)) — 1 control plane + 2 workers on
 AWS Academy Learner Lab EC2 instances, formed automatically at boot. The only change from Week 10 is the
 **lab payload**: the staged manifests and `commands.sh` are the Week 11 ConfigMaps/Secrets workshop.
 
@@ -57,13 +57,13 @@ ls ~/week11                        # fortune-env-cm.yaml  fortune-secret-env.yam
 Then follow **`commands.sh`** section by section next to the slides (`week11/Week11_lab.pptx`):
 create the `fortune-config` ConfigMap and `fortune-secret` Secret from literals, inject each into a
 `luksa/fortune:env` pod as an environment variable, and `printenv` to prove it. Everything lives in one
-namespace (`week10`, the name the deck uses) so cleanup is a single command.
+namespace (`week11`, the name the deck uses) so cleanup is a single command.
 
 ## 4. Cleanup
 
 ```bash
 # on the master:
-kubectl delete namespace week10        # removes the pods, ConfigMap and Secret
+kubectl delete namespace week11        # removes the pods, ConfigMap and Secret
 
 # then on your laptop:
 terraform destroy                      # stops the $50 Learner Lab meter
