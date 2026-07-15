@@ -1,0 +1,17 @@
+# Week 11 lab · Step 2 — inject a ConfigMap value as an environment variable.
+# The container env var INTERVAL takes its value from the ConfigMap
+# 'fortune-config' key 'sleep-interval' (created imperatively in commands.sh).
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-env-cm
+spec:
+  containers:
+    - image: luksa/fortune:env
+      name: html-generator
+      env:
+        - name: INTERVAL
+          valueFrom:
+            configMapKeyRef:
+              name: fortune-config
+              key: sleep-interval
